@@ -8,4 +8,22 @@ export const variables = {
     secondary: "#F65A29",
   },
   SECURE_KEY_PREFIX: "kuruwa-",
+  MENU: {
+    data: [
+      "Recent Requests",
+      "Settings",
+      "Privacy Policy",
+      "About Us",
+      "Tell a friend",
+      "Help and Feedback",
+    ],
+    icons: [
+      "local-activity",
+      "settings",
+      "policy",
+      "people",
+      "emoji-people",
+      "feedback",
+    ],
+  },
 };

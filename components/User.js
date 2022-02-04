@@ -3,46 +3,22 @@ import { View, Text, StyleSheet } from "react-native";
 import Dashboard from "./Dashboard";
 import axios from "axios";
 import { variables } from "./variables";
+import Menu from "./Menu";
+import { useUserContext } from "../contexts/UserContextProvider";
 
 const User = ({ navigation }) => {
-  const [callkuruwaArray, setCallkuruwaArray] = useState([]);
-  useEffect(async () => {
-    const allCallKuruwa = await axios.get(
-      "https://kuruwaserver.herokuapp.com/getcallkuruwa"
-    );
-    console.log(allCallKuruwa.data.message, typeof allCallKuruwa.data.message);
-    setCallkuruwaArray(allCallKuruwa.data.message);
-  }, []);
-
+  const { loggedinUser, setLoggedinUser } = useUserContext();
   return (
     <View style={{ flex: 1 }}>
-      <Dashboard />
-      <View
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          height: "100%",
-        }}>
-        {callkuruwaArray.length !== 0 ? (
-          <>
-            <Text style={{ fontSize: 22, color: variables.COLOR.secondary }}>
-              Here Are the recent kuruwa requests:
-            </Text>
-          </>
-        ) : null}
-        {callkuruwaArray.map((call) => {
-          return (
-            <React.Fragment>
-              <View style={styles.requests}>
-                <Text style={styles.text}>Name: {call.username}</Text>
-                <Text style={styles.text}>Phone: {call.phonenumber}</Text>
-                <Text style={styles.text}>Hospital: {call.hospital}</Text>
-              </View>
-            </React.Fragment>
-          );
-        })}
-      </View>
+      <Dashboard
+        loggedinUser={loggedinUser}
+        setLoggedinUser={setLoggedinUser}
+      />
+      <Menu
+        navigation={navigation}
+        menuArray={variables.MENU.data}
+        iconsArray={variables.MENU.icons}
+      />
     </View>
   );
 };

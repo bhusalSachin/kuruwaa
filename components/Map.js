@@ -34,7 +34,9 @@ const Map = () => {
     </MapView>
   ) : (
     <>
-      <Text>Loading....</Text>
+      <Text style={{ alignItems: "center", justifyContent: "center" }}>
+        Loading....
+      </Text>
     </>
   );
 

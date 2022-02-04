@@ -21,7 +21,7 @@ const Home = ({ navigation }) => {
     navigation.navigate("login");
   };
   const onClientHandler = () => {
-    navigation.navigate("land");
+    navigation.navigate("clientsignup");
   };
 
   return (
