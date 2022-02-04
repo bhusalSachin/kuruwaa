@@ -36,16 +36,16 @@ const Land = ({ navigation }) => {
         );
 
         const tokenArray = allExpoPushTokens.data.message.filter(
-          (elem) => elem !== null || elem !== ""
+          (elem) => elem !== null && elem !== ""
         );
 
+        console.log("all tokens ", tokenArray);
         const response = await axios.post(
           "https://exp.host/--/api/v2/push/send",
           JSON.stringify({
             to: tokenArray,
             title: "From Kuruwa",
             body: "Someone is calling for kuruwaa. Open Kuruwaa dashboard to see the details.",
-            data: { name, phone, hospital },
           }),
           {
             headers: {
