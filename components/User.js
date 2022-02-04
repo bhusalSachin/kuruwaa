@@ -33,11 +33,13 @@ const User = ({ navigation }) => {
         ) : null}
         {callkuruwaArray.map((call) => {
           return (
-            <View key={call} style={styles.requests}>
-              <Text style={styles.text}>Name: {call.username}</Text>
-              <Text style={styles.text}>Phone: {call.phonenumber}</Text>
-              <Text style={styles.text}>Hospital: {call.hospital}</Text>
-            </View>
+            <React.Fragment>
+              <View style={styles.requests}>
+                <Text style={styles.text}>Name: {call.username}</Text>
+                <Text style={styles.text}>Phone: {call.phonenumber}</Text>
+                <Text style={styles.text}>Hospital: {call.hospital}</Text>
+              </View>
+            </React.Fragment>
           );
         })}
       </View>

@@ -5,6 +5,7 @@ import ClickButton from "./ClickButton";
 import InputField from "./InputField";
 import KuruwaPositionProvider from "../contexts/KuruwaPositionProvider";
 import axios from "axios";
+
 const Land = ({ navigation }) => {
   const [isClicked, setIsClicked] = React.useState(false);
   const [name, setName] = React.useState(null);
